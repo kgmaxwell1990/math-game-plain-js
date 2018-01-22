@@ -45,10 +45,27 @@ function setSubtractionGame() {
     subtractionQuiz();
 }
 
+function subtractionQuiz() {
+    let num1 = Math.floor(Math.random() * 50);
+    let num2 = Math.floor(Math.random() * 50);
+    questionbox.textContent = "What is: " + num1 + " - " + num2 + "?";
+    answerform["rightAnswer"].value = (num1 - num2);
+}
+
+subtractionQuiz();
+
 function setMultiplicationGame() {
     document.getElementById("myForm").setAttribute("data-gametype", "addition");
     multiplicationQuiz();
 }
 
+function multiplicationQuiz() {
+    let num1 = Math.floor(Math.random() * 20);
+    let num2 = Math.floor(Math.random() * 20);
+    questionbox.textContent = "What is: " + num1 + " x " + num2 + "?";
+    answerform["rightAnswer"].value = (num1 * num2);
+}
+
+multiplicationQuiz();
 
 
