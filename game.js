@@ -66,6 +66,6 @@ function multiplicationQuiz() {
     answerform["rightAnswer"].value = (num1 * num2);
 }
 
-multiplicationQuiz();
+multiplicationQuiz()
 
 
