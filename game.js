@@ -3,7 +3,6 @@ let scorebox = document.getElementById("score");
 let questionbox = document.getElementById("question");
 let answerform = document.getElementById("myForm");
 
-
 function checkAnswer() {
     let gametype = document.getElementById("myForm").getAttribute("data-gametype");
     if (answerform["answer"].value == answerform["rightAnswer"].value) {
@@ -13,6 +12,7 @@ function checkAnswer() {
         alert("Oh, sorry! You got it wrong :(");
     }
     scorebox.textContent = score;
+    
     if(gametype == "addition") {
         additionQuiz();
     }
@@ -22,50 +22,36 @@ function checkAnswer() {
     if(gametype == "multiplication") {
         multiplicationQuiz();
     }
+    
+    return false;
 }
 
-
-
-function setAdditionGame() {
-    document.getElementById("myForm").setAttribute("data-gametype", "addition");
-    additionQuiz();
+function setGame(type, linkToQuiz) {
+    document.getElementById("myForm").setAttribute("data-gametype", type);
+    linkToQuiz;
 }
 
-function additionQuiz() {
-    let num1 = Math.floor(Math.random() * 50);
-    let num2 = Math.floor(Math.random() * 50);
-    questionbox.textContent = "What is: " + num1 + " + " + num2 + "?";
-    answerform["rightAnswer"].value = (num1 + num2);
+let num1;
+let num2;;
+
+function quiz(symb, calc) {
+    num1 = Math.floor(Math.random() * 50)
+    num2 = Math.floor(Math.random() * 50)
+    questionbox.textContent = "What is: " + num1 + symb + num2 + "?";
+    answerform["rightAnswer"].value = calc;
 }
+
+let additionQuiz = function() {
+    quiz("+", (num1+num2));
+};
+
+let subtractionQuiz = function() {
+    quiz("-", (num1-num2));
+};
+
+let multiplicationQuiz = function() {
+    quiz("*", (num1*num2));
+};
+
 
 additionQuiz();
-
-function setSubtractionGame() {
-    document.getElementById("myForm").setAttribute("data-gametype", "addition");
-    subtractionQuiz();
-}
-
-function subtractionQuiz() {
-    let num1 = Math.floor(Math.random() * 50);
-    let num2 = Math.floor(Math.random() * 50);
-    questionbox.textContent = "What is: " + num1 + " - " + num2 + "?";
-    answerform["rightAnswer"].value = (num1 - num2);
-}
-
-subtractionQuiz();
-
-function setMultiplicationGame() {
-    document.getElementById("myForm").setAttribute("data-gametype", "addition");
-    multiplicationQuiz();
-}
-
-function multiplicationQuiz() {
-    let num1 = Math.floor(Math.random() * 20);
-    let num2 = Math.floor(Math.random() * 20);
-    questionbox.textContent = "What is: " + num1 + " x " + num2 + "?";
-    answerform["rightAnswer"].value = (num1 * num2);
-}
-
-multiplicationQuiz()
-
-
