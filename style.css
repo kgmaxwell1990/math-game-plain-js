@@ -7,10 +7,8 @@ body {
 
 h1,h2,h3,h4,h5 {
     font-family: 'Gugi', sans-serif;
-}
-
-.red_color {
-    
+    text-shadow: 1px 1px black;
+     font-weight: 100;   
 }
 
 .container {
@@ -20,7 +18,11 @@ h1,h2,h3,h4,h5 {
 .main_container {
     background-color: rgba(255,255,255, 0.9);
     text-align: center;
+}
 
+.fas {
+    text-shadow: 1px 1px black;
+    
 }
 
 .btn-success {
@@ -31,13 +33,18 @@ h1,h2,h3,h4,h5 {
 
 .btn-danger {
     background-image: linear-gradient(#B41344, #B41354 60%, #B41344);
-    border-color: #2798C1;
+    border-color: #B41344;
 }
 
 .choose_game_buttons button {
     display: block;
     margin: 5px auto;
-    min-width: 150px;
+    min-width: 180px;
+}
+
+.choose_game_buttons button h5 {
+    color: white;
+    font-weight: 100;
 }
 
 .current_score {
@@ -45,16 +52,41 @@ h1,h2,h3,h4,h5 {
 }
 
 #firstNum,
-#secondNum{
+#secondNum,
+#answer_box{
     background-color: rgba(255,255,255, 0.8);
     padding: 40px;
-    border: 1px #2798C1 solid;
+    border: 2px #2798C1 solid;
     border-radius: 20%;
     color: orange;
+    text-shadow: 1px 1px black;
+    
 }
+
+
 
 #firstNum {
     /*background-color: red;*/
+}
+
+#answer_box {
+    height: 127px;
+    width: 127px;
+    position: relative;
+    top: 43px;
+    font-family: 'Gugi', sans-serif;
+    text-shadow: 1px 1px black;
+    font-weight: 100;  
+    padding: 20px;
+    border: 3px #B41344 solid;
+    
+}
+
+#myForm {
+    /*width: 40px;*/
+    height: 100%;
+    /*position: absolute;*/
+    /*top: 5px;*/
 }
 
 .questionTime h1,
@@ -62,7 +94,8 @@ h1,h2,h3,h4,h5 {
      /*margin: 10px 30px;*/
 }
 
-.questionTime h1{
+.questionTime h1,
+.questionTime > div{
     display: inline-block;
     min-width: 127px
 }
@@ -70,8 +103,62 @@ h1,h2,h3,h4,h5 {
 #symbol {
     color: #2798C1;
     width: 50px;
+    text-shadow: 1px 1px black;
 }
 
+#pause_symbol {
+    color: #2798C1;
+    margin: 10px;
+}
+
+.background_wrong {
+    width:100vw;
+    height: 100%;
+    position: fixed;
+    z-index: 3000;
+    background: url(wrong.gif) no-repeat center center fixed;
+    background-size: contain;
+}
+
+.background_right {
+    width:100vw;
+    height: 100%;
+    position: fixed;
+    z-index: 3000;
+    background: url(right.gif) no-repeat center center fixed;
+    background-size: contain;   
+}
+
+
+.fa-pause {
+    transform: rotate(90deg);
+}
+
+.form-control {
+    border-width: 0px;
+    height: 100%;
+    width: 100%;
+    color: orange;
+    font-size: 36px;
+    text-shadow: 1px 1px black;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.form-control:focus {
+    border:none;
+    box-shadow: none;
+    
+}
+
+.form_in_answer_box {
+    height: 100%;
+    width: 100%;
+}
 
 @media screen and (min-width:768px) {
 
@@ -83,6 +170,6 @@ h1,h2,h3,h4,h5 {
 .choose_game_buttons button {
     display: inline-block;
     /*margin: 40px 40px;*/
-    min-width: 150px;
+    min-width: 180px;
 }
 }

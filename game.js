@@ -2,6 +2,8 @@ let score = 0;
 let scorebox = document.getElementById("score");
 let questionbox1 = document.getElementById("firstNum");
 let symbol = document.getElementById("symbol");
+let wrong = document.getElementById("wrong");
+let right = document.getElementById("right");
 let questionbox2 = document.getElementById("secondNum");
 let answerform = document.getElementById("myForm");
 let gametype = document.getElementById("myForm").getAttribute("data-gametype");
@@ -10,10 +12,13 @@ let num2;
 
 function checkAnswer() {
     if (answerform["answer"].value == answerform["rightAnswer"].value) {
-        alert("Hey! You got it right!");
+        right.classList.add("background_right");
+        setTimeout(function(){right.classList.remove('background_right')}, 2000);
         score++;
     } else {
-        alert("Oh, sorry! You got it wrong :(");
+        wrong.classList.add("background_wrong");
+        setTimeout(function(){wrong.classList.remove('background_wrong')}, 2000);
+        ;
     }
     scorebox.textContent = score;
     answerform["answer"].value = "";
@@ -55,30 +60,33 @@ function setGame(type, linkToQuiz) {
     linkToQuiz;
 }
 
-function quiz(calc) {
+function quiz() {
     num1 = Math.floor(Math.random() * 50)
     num2 = Math.floor(Math.random() * 50)
     questionbox1.textContent = num1;
     questionbox2.textContent = num2;
-    // while(isNaN(typeof(calc))) {
-        
-    // }
-    answerform["rightAnswer"].value = calc;
+    if(gametype == "addition") {
+        answerform["rightAnswer"].value = (num1+num2);
+    }
+    if(gametype == "subtraction") {
+        answerform["rightAnswer"].value = (num1-num2);
+    }
+    if(gametype == "multiplication") {
+        answerform["rightAnswer"].value = (num1*num2);
+    }
 }
 
-console.log(answerform["rightAnswer"].value)
-
 let additionQuiz = function() {
-    quiz(num1+num2);
+    quiz();
 };
 
 let subtractionQuiz = function() {
-    quiz(num1-num2);
+    quiz();
 };
 
 let multiplicationQuiz = function() {
-    quiz(num1*num2);
+    quiz();
 };
 
 
-additionQuiz();
+subtractionQuiz();
