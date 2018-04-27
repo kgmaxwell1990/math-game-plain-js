@@ -3,7 +3,7 @@ let end_game = document.getElementById("end_game");
 let level = document.getElementById("chooseLevelForm").getAttribute("data-level");
 let gametype = document.getElementById("myForm").getAttribute("data-gametype");
 let main_container = document.getElementById("main_container");
-let display = document.querySelector('#time');
+let display = document.querySelector('#timer');
 let score = 0;
 let scorebox = document.getElementById("score");
 let questionbox1 = document.getElementById("firstNum");
@@ -17,11 +17,13 @@ let num2;
 
 function resetAll() {
     scorebox.textContent = 0;
+    display.textContent = "01:00";
 }
 
 function chooseOptions() {
     choose_options.classList.add('display_choose_options');
     main_container.classList.add('display_none');
+    display.textContent = "01:00";
     end_game.classList.add('display_none');
 }
 
@@ -42,7 +44,9 @@ function chooseLevel() {
 
 function startTimer(duration, display) {
     let timer = duration, minutes, seconds;
-    setInterval(function () {
+    let timesRan = 0
+    let interval = setInterval(function () {
+        timesRan += 1
         minutes = parseInt(timer / 60, 10)
         seconds = parseInt(timer % 60, 10);
 
@@ -50,10 +54,16 @@ function startTimer(duration, display) {
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display.textContent = minutes + ":" + seconds;
-
+        
+        
         if (--timer < 0) {
             timer = duration;
         }
+        
+        if(timesRan === 61){
+        clearInterval(interval);
+        }
+        
     }, 1000);
 }
 
@@ -68,10 +78,11 @@ function startGame() {
     end_game.classList.add('display_none');
     main_container.classList.remove('display_none');
     callQuizFromGametype();
+    
     startTimer(60, display);
 }
 
-setInterval(stopTimer,50);
+setInterval(stopTimer,100);
 
 function setGameType(type, linkToQuiz) {
     gametype = type
@@ -207,8 +218,10 @@ function checkAnswer() {
 }
 
 function endGame() {
+    display.textContent = "01:00";
     end_game.classList.remove('display_none');
     end_game.classList.add('end_game_options');
+    
     main_container.classList.add('display_none');
 }
 

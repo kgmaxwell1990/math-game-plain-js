@@ -197,16 +197,17 @@ input[type=number]::-webkit-outer-spin-button {
     filter: grayscale(100%);
 }
 
-#time {
+#timer {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 40px;
+    padding: 60px;
+    padding-right: 90px;
     font-family: 'Gugi', sans-serif;
     text-shadow: 1px 1px black;
     font-weight: 100;   
     color:orange;
-    font-size: 25px;
+    font-size: 65px;
 }
 
 @media screen and (min-width:768px) {
