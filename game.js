@@ -5,6 +5,7 @@ let gametype = document.getElementById("myForm").getAttribute("data-gametype");
 let main_container = document.getElementById("main_container");
 let display = document.querySelector('#timer');
 let score = 0;
+let score_at_end = document.getElementById("endscore");
 let scorebox = document.getElementById("score");
 let questionbox1 = document.getElementById("firstNum");
 let questionbox2 = document.getElementById("secondNum");
@@ -14,6 +15,8 @@ let wrong = document.getElementById("wrong");
 let right = document.getElementById("right");
 let num1;
 let num2;
+
+console.log(score)
 
 function resetAll() {
     scorebox.textContent = 0;
@@ -79,7 +82,7 @@ function startGame() {
     main_container.classList.remove('display_none');
     callQuizFromGametype();
     
-    startTimer(60, display);
+    startTimer(20, display);
 }
 
 setInterval(stopTimer,100);
@@ -197,7 +200,6 @@ let multiplicationQuiz = function() {
 };
 
 
-
 function checkAnswer() {
     if (answerform["answer"].value == answerform["rightAnswer"].value) {
         right.classList.add("display_gif");
@@ -210,20 +212,22 @@ function checkAnswer() {
         ;
     }
     scorebox.textContent = score;
+    score_at_end.textContent = score;
     answerform["answer"].value = "";
-    console.log(score)
     
-    callQuizFromGametype()
+    callQuizFromGametype();
     return false;
 }
 
+
 function endGame() {
-    display.textContent = "01:00";
     end_game.classList.remove('display_none');
     end_game.classList.add('end_game_options');
-    
     main_container.classList.add('display_none');
+    score_at_end.textContent == 8;
 }
+
+console.log(score)
 
 
 
