@@ -15,7 +15,7 @@ h1,h2,h3,h4,h5 {
     text-align: center;
 }
 
-.main_container {
+#main_container {
     background-color: rgba(255,255,255, 0.9);
     text-align: center;
 }
@@ -34,6 +34,10 @@ h1,h2,h3,h4,h5 {
 .btn-danger {
     background-image: linear-gradient(#B41344, #B41354 60%, #B41344);
     border-color: #B41344;
+}
+
+.display_none {
+    display: none;
 }
 
 .choose_game_buttons button {
@@ -60,7 +64,6 @@ h1,h2,h3,h4,h5 {
     border-radius: 20%;
     color: orange;
     text-shadow: 1px 1px black;
-    
 }
 
 
@@ -111,22 +114,52 @@ h1,h2,h3,h4,h5 {
     margin: 10px;
 }
 
-.background_wrong {
-    width:100vw;
-    height: 100%;
-    position: fixed;
-    z-index: 3000;
-    background: url(wrong.gif) no-repeat center center fixed;
-    background-size: contain;
+#wrong,
+#right{
+    position: absolute;
+    z-index: 30000;
 }
 
-.background_right {
-    width:100vw;
-    height: 100%;
-    position: fixed;
-    z-index: 3000;
-    background: url(right.gif) no-repeat center center fixed;
-    background-size: contain;   
+#wrong img,
+#right img{
+    display: none;
+}
+
+.display_gif {
+    display: block;
+    width:50px;
+    height: 50px;
+    position: absolute;
+}
+
+#choose_options h1,
+#choose_options h3,
+#end_game h1,
+#end_game h3{
+    color: orange;
+}
+
+#choose_options,
+#end_game{
+    text-align: center;
+}
+
+.display_choose_options,
+.end_game_options{
+    background-color: rgba(255,255,255,0.9);
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 10%;
+    right: 10%;
+    top: 10%;
+    bottom: 10%;
+    z-index: 4000;
+    border: 10px solid #B41344;
+    border-radius: 10px;
+    padding: 10px;
+    
+    
 }
 
 
@@ -160,9 +193,25 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100%;
 }
 
+#wrong {
+    filter: grayscale(100%);
+}
+
+#time {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 40px;
+    font-family: 'Gugi', sans-serif;
+    text-shadow: 1px 1px black;
+    font-weight: 100;   
+    color:orange;
+    font-size: 25px;
+}
+
 @media screen and (min-width:768px) {
 
-.main_container {
+#main_container {
     height: 100vh;
     width: 100vw;
 }
