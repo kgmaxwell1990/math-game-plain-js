@@ -116,20 +116,21 @@ h1,h2,h3,h4,h5 {
 
 #wrong,
 #right{
+    /*display: none;*/
     position: absolute;
     z-index: 30000;
 }
 
-#wrong img,
-#right img{
-    display: none;
+#wrong {
+    bottom: 20px;
+}
+
+#right {
+    bottom: 30px;
 }
 
 .display_gif {
-    display: block;
-    width:50px;
-    height: 50px;
-    position: absolute;
+    display: inline-block;
 }
 
 #choose_options h1,
@@ -197,11 +198,12 @@ input[type=number]::-webkit-outer-spin-button {
     filter: grayscale(100%);
 }
 
-#timer {
+.timer_and_cancel{
+    text-align: right;
     position: absolute;
     top: 0;
     right: 0;
-    padding: 60px;
+    padding: 20px;
     padding-right: 90px;
     font-family: 'Gugi', sans-serif;
     text-shadow: 1px 1px black;

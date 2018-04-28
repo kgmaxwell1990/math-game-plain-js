@@ -28,9 +28,10 @@
     </div>
     
     <div id="end_game">
-        <img src="logo-math.png" alt="math quiz logo">
+        <img src="logo-math.png" alt="math quiz logo" width="150">
         <h1>Game Over!</h1>
-        <h3>Your Score : <span id="endscore"></span></h3>
+        <h3>Your Score : <span id="endscore">0</span></h3>
+        <h4>Top Score: <span id="top_score">0</span></h4>
         <h3>Play Again?</h3>
         <form id="chooseLevelForm" name="chooseLevelForm" onsubmit="chooseLevel(); return false;" data-level="easy" action="#">
           <input type="radio" name="level" value="easy" id="level_easy" checked> Easy<br>
@@ -44,7 +45,11 @@
     
     
     <div id="main_container">
+        <div class="timer_and_cancel">
+<button class="btn btn-danger" type="button" value="Refresh Page" onClick="window.location.reload()" id="cancel_game_button">Cancel Game</button>
+        
         <div id="timer"></div>
+        </div>
         <img src="logo-math.png" alt="math quiz logo">
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2">

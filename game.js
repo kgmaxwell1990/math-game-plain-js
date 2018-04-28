@@ -5,8 +5,9 @@ let gametype = document.getElementById("myForm").getAttribute("data-gametype");
 let main_container = document.getElementById("main_container");
 let display = document.querySelector('#timer');
 let score = 0;
-let score_at_end = document.getElementById("endscore");
 let scorebox = document.getElementById("score");
+let score_at_end = document.getElementById("endscore");
+let top_score = document.getElementById("top_score")
 let questionbox1 = document.getElementById("firstNum");
 let questionbox2 = document.getElementById("secondNum");
 let symbol = document.getElementById("symbol");
@@ -16,9 +17,8 @@ let right = document.getElementById("right");
 let num1;
 let num2;
 
-console.log(score)
-
 function resetAll() {
+    score = 0;
     scorebox.textContent = 0;
     display.textContent = "01:00";
 }
@@ -70,8 +70,12 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
+let bestScoreArray = [];
+
 function stopTimer() {
     if(display.textContent == "00:00") {
+        bestScoreArray.push(parseInt(scorebox.textContent))
+        console.log(bestScoreArray)
         endGame()
     }
 }
@@ -82,10 +86,10 @@ function startGame() {
     main_container.classList.remove('display_none');
     callQuizFromGametype();
     
-    startTimer(20, display);
+    startTimer(60, display);
 }
 
-setInterval(stopTimer,100);
+setInterval(stopTimer,1000);
 
 function setGameType(type, linkToQuiz) {
     gametype = type
@@ -203,31 +207,36 @@ let multiplicationQuiz = function() {
 function checkAnswer() {
     if (answerform["answer"].value == answerform["rightAnswer"].value) {
         right.classList.add("display_gif");
-        setTimeout(function(){right.classList.remove('background_right')}, 2000);
+        // setTimeout(function(){right.classList.remove('background_right')}, 2000);
         score++;
     } else {
         wrong.classList.add("display_gif");
-        setTimeout(function(){wrong.classList.remove('background_wrong')}, 2000);
+        // setTimeout(function(){wrong.classList.remove('background_wrong')}, 2000);
         score--;
         ;
     }
     scorebox.textContent = score;
-    score_at_end.textContent = score;
     answerform["answer"].value = "";
     
     callQuizFromGametype();
     return false;
 }
 
+function getTopScore() {
+    let topScore = Math.max.apply(null, bestScoreArray)
+    return topScore
+}
 
 function endGame() {
     end_game.classList.remove('display_none');
     end_game.classList.add('end_game_options');
     main_container.classList.add('display_none');
-    score_at_end.textContent == 8;
+    score_at_end.textContent = scorebox.textContent;
+    top_score.textContent = getTopScore();
 }
 
-console.log(score)
+
+
 
 
 
