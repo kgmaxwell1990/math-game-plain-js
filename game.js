@@ -4,7 +4,6 @@ let level = document.getElementById("chooseLevelForm").getAttribute("data-level"
 let gametype = document.getElementById("myForm").getAttribute("data-gametype");
 let main_container = document.getElementById("main_container");
 let display = document.querySelector('#timer');
-let score = 0;
 let scorebox = document.getElementById("score");
 let score_at_end = document.getElementById("endscore");
 let top_score = document.getElementById("top_score")
@@ -16,6 +15,8 @@ let wrong = document.getElementById("wrong");
 let right = document.getElementById("right");
 let num1;
 let num2;
+let score = 0;
+let bestScoreArray = [];
 
 function resetAll() {
     score = 0;
@@ -30,7 +31,6 @@ function chooseOptions() {
     end_game.classList.add('display_none');
 }
 
-chooseOptions();
 
 function chooseLevel() {
     if(document.getElementById('level_easy').checked) {
@@ -70,12 +70,9 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-let bestScoreArray = [];
-
 function stopTimer() {
     if(display.textContent == "00:00") {
         bestScoreArray.push(parseInt(scorebox.textContent))
-        console.log(bestScoreArray)
         endGame()
     }
 }
@@ -85,11 +82,10 @@ function startGame() {
     end_game.classList.add('display_none');
     main_container.classList.remove('display_none');
     callQuizFromGametype();
-    
     startTimer(60, display);
+    setInterval(stopTimer,1000);
 }
 
-setInterval(stopTimer,1000);
 
 function setGameType(type, linkToQuiz) {
     gametype = type
@@ -206,14 +202,14 @@ let multiplicationQuiz = function() {
 
 function checkAnswer() {
     if (answerform["answer"].value == answerform["rightAnswer"].value) {
-        right.classList.add("display_gif");
-        // setTimeout(function(){right.classList.remove('background_right')}, 2000);
+        right.classList.remove("hide");
+        wrong.classList.add("hide");
+        setTimeout(function(){right.classList.add('hide')}, 1000);
         score++;
     } else {
-        wrong.classList.add("display_gif");
-        // setTimeout(function(){wrong.classList.remove('background_wrong')}, 2000);
-        score--;
-        ;
+        wrong.classList.remove("hide");
+        right.classList.add("hide");
+        setTimeout(function(){wrong.classList.add('hide')}, 1000);
     }
     scorebox.textContent = score;
     answerform["answer"].value = "";
@@ -234,6 +230,9 @@ function endGame() {
     score_at_end.textContent = scorebox.textContent;
     top_score.textContent = getTopScore();
 }
+
+
+chooseOptions();
 
 
 

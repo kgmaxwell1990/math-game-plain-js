@@ -114,9 +114,12 @@ h1,h2,h3,h4,h5 {
     margin: 10px;
 }
 
+.hide {
+    display: none;
+}
+
 #wrong,
 #right{
-    /*display: none;*/
     position: absolute;
     z-index: 30000;
 }
@@ -129,15 +132,15 @@ h1,h2,h3,h4,h5 {
     bottom: 30px;
 }
 
-.display_gif {
-    display: inline-block;
-}
-
 #choose_options h1,
 #choose_options h3,
 #end_game h1,
 #end_game h3{
     color: orange;
+}
+
+#end_game h4 {
+    color: #B41344;
 }
 
 #choose_options,
