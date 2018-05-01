@@ -8,21 +8,21 @@ body {
 h1,h2,h3,h4,h5 {
     font-family: 'Gugi', sans-serif;
     text-shadow: 1px 1px black;
-     font-weight: 100;   
-}
-
-.container {
-    text-align: center;
+    font-weight: 100;   
 }
 
 #main_container {
     background-color: rgba(255,255,255, 0.9);
+    height: 100vh;
     text-align: center;
 }
 
 .fas {
     text-shadow: 1px 1px black;
-    
+}
+
+.display_none {
+    display: none;
 }
 
 .btn-success {
@@ -30,23 +30,48 @@ h1,h2,h3,h4,h5 {
     border-color: #2798C1;
 }
 
-
 .btn-danger {
     background-image: linear-gradient(#B41344, #B41354 60%, #B41344);
     border-color: #B41344;
 }
 
-.display_none {
-    display: none;
+#logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+}
+
+.timer_and_cancel{
+    text-align: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0 15px;
+    font-family: 'Gugi', sans-serif;
+    text-shadow: 1px 1px black;
+    font-weight: 100;   
+    color:orange;
+    font-size: 65px;
+}
+
+.timer_and_cancel #timer {
+    font-size: 25px;
+    padding-right: 10px;
+}
+
+.main_content {
+    padding-top: 130px;
 }
 
 .choose_game_buttons button {
-    display: block;
+    display: inline-block;
     margin: 5px auto;
-    min-width: 180px;
+    min-width: 160px;
+    padding: 5px;
 }
-
-.choose_game_buttons button h5 {
+.choose_game_buttons button h5,
+.choose_level_buttons button h5{
     color: white;
     font-weight: 100;
 }
@@ -59,7 +84,7 @@ h1,h2,h3,h4,h5 {
 #secondNum,
 #answer_box{
     background-color: rgba(255,255,255, 0.8);
-    padding: 40px;
+    padding: 10px;
     border: 2px #2798C1 solid;
     border-radius: 20%;
     color: orange;
@@ -73,8 +98,9 @@ h1,h2,h3,h4,h5 {
 }
 
 #answer_box {
-    height: 127px;
-    width: 127px;
+    height: 100px;
+    width: 100px;
+    margin-top: -30px;
     position: relative;
     top: 43px;
     font-family: 'Gugi', sans-serif;
@@ -82,6 +108,7 @@ h1,h2,h3,h4,h5 {
     font-weight: 100;  
     padding: 20px;
     border: 3px #B41344 solid;
+    
     
 }
 
@@ -92,15 +119,11 @@ h1,h2,h3,h4,h5 {
     /*top: 5px;*/
 }
 
-.questionTime h1,
-.questionTime i {
-     /*margin: 10px 30px;*/
-}
 
 .questionTime h1,
 .questionTime > div{
     display: inline-block;
-    min-width: 127px
+    min-width: 80px
 }
 
 #symbol {
@@ -112,6 +135,7 @@ h1,h2,h3,h4,h5 {
 #pause_symbol {
     color: #2798C1;
     margin: 10px;
+    display: block;
 }
 
 .hide {
@@ -132,11 +156,15 @@ h1,h2,h3,h4,h5 {
     bottom: 30px;
 }
 
-#choose_options h1,
+#choose_options h2,
 #choose_options h3,
-#end_game h1,
+#end_game h2,
 #end_game h3{
     color: orange;
+}
+
+#choose_options h4 {
+    color: #B41344;
 }
 
 #end_game h4 {
@@ -162,10 +190,7 @@ h1,h2,h3,h4,h5 {
     border: 10px solid #B41344;
     border-radius: 10px;
     padding: 10px;
-    
-    
 }
-
 
 .fa-pause {
     transform: rotate(90deg);
@@ -176,7 +201,7 @@ h1,h2,h3,h4,h5 {
     height: 100%;
     width: 100%;
     color: orange;
-    font-size: 36px;
+    font-size: 26px;
     text-shadow: 1px 1px black;
 }
 
@@ -201,13 +226,26 @@ input[type=number]::-webkit-outer-spin-button {
     filter: grayscale(100%);
 }
 
+
+
+.box {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+@media screen and (min-width:768px) {
+
+#logo {
+    position: static;
+    width: 200px;
+}
+
 .timer_and_cancel{
     text-align: right;
     position: absolute;
     top: 0;
     right: 0;
-    padding: 20px;
-    padding-right: 90px;
+    margin: 0 15px;
     font-family: 'Gugi', sans-serif;
     text-shadow: 1px 1px black;
     font-weight: 100;   
@@ -215,7 +253,14 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 65px;
 }
 
-@media screen and (min-width:768px) {
+.timer_and_cancel #timer {
+    font-size: 36px;
+    padding-right: 10px;
+}
+
+.main_content {
+    padding-top: 10px;
+}
 
 #main_container {
     height: 100vh;
@@ -223,8 +268,36 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .choose_game_buttons button {
-    display: inline-block;
-    /*margin: 40px 40px;*/
     min-width: 180px;
+    padding: 15px;
+}
+
+.box {
+    margin: 5px 30px;
+}
+
+#firstNum,
+#secondNum,
+#answer_box{
+    padding: 40px;
+}
+
+.questionTime h1,
+.questionTime > div{
+    min-width: 127px
+}
+
+#pause_symbol {
+    display: inline-block;
+}
+
+.form-control {
+    font-size: 46px;
+}
+
+#answer_box {
+    height: 127px;
+    width: 127px;
+    padding: 20px;
 }
 }

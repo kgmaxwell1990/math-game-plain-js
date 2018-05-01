@@ -40,6 +40,8 @@ function chooseLevel() {
     }else {
         level = 'hard';
     }
+    
+    console.log(level)
     resetAll()
     startGame()
     return false;
@@ -87,10 +89,10 @@ function startGame() {
 }
 
 
-function setGameType(type, linkToQuiz) {
+function setGameType(type) {
     gametype = type
     symbol.textContent = getSymb();
-    linkToQuiz;
+    callQuizFromGametype();
 }
 
 
@@ -185,6 +187,7 @@ function quiz() {
     if(gametype == "multiplication") {
         answerform["rightAnswer"].value = (num1*num2);
     }
+    
 }
 
 let additionQuiz = function() {

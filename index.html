@@ -17,13 +17,25 @@
     
     <div id="choose_options">
         <img src="logo-math.png" alt="math quiz logo">
-        <h1>Test Your Math Skills Against The Clock</h1>
+        <h2>Test Your Math Skills Against The Clock</h2>
         <h3>Choose Your Level</h3>
         <form id="chooseLevelForm" name="chooseLevelForm" onsubmit="chooseLevel(); return false;" data-level="easy" action="#">
-          <input type="radio" name="level" value="easy" id="level_easy" checked> Easy<br>
-          <input type="radio" name="level" value="medium" id="level_medium" > Medium<br>
-          <input type="radio" name="level" value="hard" id="level_hard" >Hard  <br>
-          <input class="btn btn-success" type="submit" name="submit" value="PLAY"/>
+            <div class="box easy_box">
+              <input type="radio" name="level" value="easy" id="level_easy" checked>
+              <h4>Easy</h4> 
+            </div>
+            <div class="box medium_box">
+              <input type="radio" name="level" value="medium" id="level_medium" >
+              <h4> Medium</h4>
+            </div>
+            <div class="box hard_box">
+              <input type="radio" name="level" value="hard" id="level_hard" >
+              <h4> Hard </h4>
+            </div>
+            <br>
+            <div class="box">
+          <input class="btn btn-success btn-lg" type="submit" name="submit" value="PLAY"/>
+          </div>
         </form>
     </div>
     
@@ -34,10 +46,22 @@
         <h4>Top Score: <span id="top_score">0</span></h4>
         <h3>Play Again?</h3>
         <form id="chooseLevelForm" name="chooseLevelForm" onsubmit="chooseLevel(); return false;" data-level="easy" action="#">
-          <input type="radio" name="level" value="easy" id="level_easy" checked> Easy<br>
-          <input type="radio" name="level" value="medium" id="level_medium" > Medium<br>
-          <input type="radio" name="level" value="hard" id="level_hard" >Hard  <br>
-          <input class="btn btn-success" type="submit" name="submit" value="PLAY"/>
+            <div class="box easy_box">
+              <input type="radio" name="level" value="easy" id="level_easy" checked>
+              <h4>Easy</h4> 
+            </div>
+            <div class="box medium_box">
+              <input type="radio" name="level" value="medium" id="level_medium" >
+              <h4> Medium</h4>
+            </div>
+            <div class="box hard_box">
+              <input type="radio" name="level" value="hard" id="level_hard" >
+              <h4> Hard </h4>
+            </div>
+            <br>
+            <div class="box">
+          <input class="btn btn-success btn-lg" type="submit" name="submit" value="PLAY"/>
+          </div>
         </form>
     </div>
     
@@ -46,18 +70,18 @@
     
     <div id="main_container">
         <div class="timer_and_cancel">
-<button class="btn btn-danger" type="button" value="Refresh Page" onClick="window.location.reload()" id="cancel_game_button">Cancel Game</button>
+        <button class="btn btn-danger" type="button" value="Refresh Page" onClick="window.location.reload()" id="cancel_game_button">Cancel Game</button>
         
         <div id="timer"></div>
         </div>
-        <img src="logo-math.png" alt="math quiz logo">
-        <div class="row">
+        <img src="logo-math.png" alt="math quiz logo" width="130" id="logo">
+        <div class="row main_content">
             <div class="col-sm-8 col-sm-offset-2">
                 <h3 class="current_score"> Current Score: <span id="score">0</span></h3>
                 <div class="choose_game_buttons">
-                <button onclick="setGameType('addition', additionQuiz());" class="btn btn-danger btn-lg"><i class="fas fa-plus fa-2x"></i><br><h5>Test Addition</h5></button>
-                <button onclick="setGameType('subtraction', subtractionQuiz());" class="btn btn-success btn-lg"><i class="fas fa-minus fa-2x"></i><br><h5>Test Subtraction</h5></button>
-                <button onclick="setGameType('multiplication', multiplicationQuiz());" class="btn btn-danger btn-lg"><i class="fas fa-times fa-2x"></i><br><h5>Test Multiplication</h5></button>
+                <button onclick="setGameType('addition');" class="btn btn-danger btn-lg"><i class="fas fa-plus fa-2x"></i><br><h5>Test Addition</h5></button>
+                <button onclick="setGameType('subtraction');" class="btn btn-success btn-lg"><i class="fas fa-minus fa-2x"></i><br><h5>Test Subtraction</h5></button>
+                <button onclick="setGameType('multiplication');" class="btn btn-danger btn-lg"><i class="fas fa-times fa-2x"></i><br><h5>Test Multiplication</h5></button>
                 </div>
                 
                 
