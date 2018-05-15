@@ -1,1 +1,1 @@
-Live version https://kgmaxwell1990.github.io/math-game-js/ 
+Live version https://kgmaxwell1990.github.io/math-game-plain-js/

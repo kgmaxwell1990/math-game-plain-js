@@ -21,13 +21,13 @@ let bestScoreArray = [];
 function resetAll() {
     score = 0;
     scorebox.textContent = 0;
-    display.textContent = "00:30";
+    display.textContent = "01:00";
 }
 
 function chooseOptions() {
     choose_options.classList.add('display_choose_options');
     main_container.classList.add('display_none');
-    display.textContent = "00:30";
+    display.textContent = "01:00";
     end_game.classList.add('display_none');
 }
 
@@ -84,7 +84,7 @@ function startGame() {
     end_game.classList.add('display_none');
     main_container.classList.remove('display_none');
     callQuizFromGametype();
-    startTimer(30, display);
+    startTimer(60, display);
     setInterval(stopTimer,1000);
 }
 
