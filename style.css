@@ -192,6 +192,21 @@ h1,h2,h3,h4,h5 {
     padding: 10px;
 }
 
+.display_choose_options img,
+.end_game_options img{
+    width: 30%;
+}
+
+.display_choose_options h2,
+.end_game_options h2{
+    font-size: 20px;
+}
+
+.display_choose_options h3,
+.end_game_options h3{
+    font-size: 15px;
+}
+
 .fa-pause {
     transform: rotate(90deg);
 }
@@ -270,6 +285,16 @@ input[type=number]::-webkit-outer-spin-button {
 .choose_game_buttons button {
     min-width: 180px;
     padding: 15px;
+}
+
+.display_choose_options h2,
+.end_game_options h2{
+    font-size: 30px;
+}
+
+.display_choose_options h3,
+.end_game_options h3{
+    font-size: 25px;
 }
 
 .box {
